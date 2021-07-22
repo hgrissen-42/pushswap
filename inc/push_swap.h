@@ -59,16 +59,19 @@ void	ft_ss(t_stack *a, t_stack *b, const char *name);
 void	ft_px(t_stack *to, t_stack *from, const char *name);
 void	free_stack(t_stack *stack);
 
-void	indexing(t_stack *stack);
+void	indexation(t_stack *stack);
 void	markup_stack(t_stack *stack);
 int		mode_greater(t_stack *stack, t_node *markup_head);
 void	solve(t_stack *a_stack);
 void	solve_a(t_stack *a_stack, t_stack *b_stack);
 void	solve_b(t_stack *a_stack, t_stack *b_stack);
-void	ft_opt_direction(t_stack *a_stack, t_stack *b_stack,
+void	direct(t_stack *a_stack, t_stack *b_stack,
 			t_info *shift_info);
 int		ft_max(int i, int j);
 long	ft_atol(char *str);
 int		ft_isint(long nbr);
+
+int		ft_strcmp(const char *s1, const char *s2);
+int		get_next_line(char **line);
 
 #endif

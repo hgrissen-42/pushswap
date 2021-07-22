@@ -1,5 +1,7 @@
 NAME = push_swap
 
+NAMEB = checker
+
 ALGO = 	src/algo/directions.c \
 		src/algo/index.c \
 		src/algo/markup.c \
@@ -18,6 +20,8 @@ UTILS = src/utils/create_stack.c \
 
 SRC =	main.c $(ALGO) $(OPERATIONS) $(UTILS)
 
+SRCB = src/bonus/bonus.c \
+		src/bonus/utility.c $(OPERATIONS) $(UTILS)
 
 
 CC = gcc -Wall -Wextra -Werror -I inc
@@ -27,9 +31,19 @@ all : $(SRC) $(NAME)
 $(NAME) : $(SRC)
 		@$(CC) $(SRC) -o $(NAME)
 
+bonus : $(SRCB) $(NAMEB)
+
+$(NAMEB) : $(SRCB)
+		@$(CC) $(SRCB) -o $(NAMEB)
+
 clean :
 		@rm $(NAME)
 
-fclean : clean
+bclean :
+		@rm $(NAMEB)
 
-re : fclean all
+fclean : clean bclean
+
+re : clean all
+
+bre : bclean bonus

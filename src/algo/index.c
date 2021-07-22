@@ -6,7 +6,7 @@
 /*   By: hgrissen <hgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 17:41:49 by hgrissen          #+#    #+#             */
-/*   Updated: 2021/07/22 17:41:53 by hgrissen         ###   ########.fr       */
+/*   Updated: 2021/07/22 18:18:48 by hgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ t_node	*next_min(t_stack *stack)
 	return (min);
 }
 
-void	indexing(t_stack *stack)
+void	indexation(t_stack *stack)
 {
 	t_node	*current;
 	int		index;

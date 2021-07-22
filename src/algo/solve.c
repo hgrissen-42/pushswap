@@ -6,13 +6,13 @@
 /*   By: hgrissen <hgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 17:42:14 by hgrissen          #+#    #+#             */
-/*   Updated: 2021/07/22 17:45:44 by hgrissen         ###   ########.fr       */
+/*   Updated: 2021/07/22 20:40:57 by hgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	align_stack(t_stack *a_stack)
+void	alignment(t_stack *a_stack)
 {
 	t_node			*current;
 	int				ra_size;
@@ -54,7 +54,7 @@ void	solve(t_stack *a_stack)
 	b_stack->mkp_head = NULL;
 	solve_a(a_stack, b_stack);
 	solve_b(a_stack, b_stack);
-	align_stack(a_stack);
+	alignment(a_stack);
 	free_stack(b_stack);
 	free_stack(a_stack);
 }
