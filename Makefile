@@ -1,43 +1,35 @@
-NAME_1 = push_swap
+NAME = push_swap
 
-NAME_2 = checker
+ALGO = 	src/algo/directions.c \
+		src/algo/index.c \
+		src/algo/markup.c \
+		src/algo/solve.c \
+		src/algo/solve_a.c \
+		src/algo/solve_b.c
 
-COMMON =	common/create_stack.c \
-		common/error_check.c \
-		common/push.c \
-		common/rotate.c \
-		common/swap.c \
-		common/utils1.c \
-		common/utils2.c 
+OPERATIONS = 	src/ops/push.c \
+				src/ops/rotate.c \
+				src/ops/swap.c 
 
-SRC1 =	pushswapsrc/pushswap.c \
-		pushswapsrc/directions.c \
-		pushswapsrc/index.c \
-		pushswapsrc/markup.c \
-		pushswapsrc/solve.c \
-		pushswapsrc/solve_a.c \
-		pushswapsrc/solve_b.c $(COMMON)
+UTILS = src/utils/create_stack.c \
+		src/utils/error_check.c \
+		src/utils/utils1.c \
+		src/utils/utils2.c 
 
-SRC2 = checkersrc/checker.c checkersrc/utils.c $(COMMON)
+SRC =	main.c $(ALGO) $(OPERATIONS) $(UTILS)
 
-CC = gcc -Wall -Wextra -Werror -I includes
 
-all : $(SRC1) $(NAME_1) 
 
-$(NAME_1) : $(SRC1)
-		@$(CC) $(SRC1) -o $(NAME_1)
+CC = gcc -Wall -Wextra -Werror -I inc
 
-bonus :  $(NAME_2)
-		
-$(NAME_2):
-		@$(CC) $(SRC2) -o $(NAME_2)
+all : $(SRC) $(NAME) 
 
-fclean :
-		@rm $(NAME_1)
+$(NAME) : $(SRC)
+		@$(CC) $(SRC) -o $(NAME)
 
-fbclean :
-		@rm $(NAME_2)
+clean :
+		@rm $(NAME)
+
+fclean : clean
 
 re : fclean all
-
-bre : fbclean bonus

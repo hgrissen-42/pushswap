@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   directions.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hgrissen <hgrissen@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/07/22 17:41:44 by hgrissen          #+#    #+#             */
+/*   Updated: 2021/07/22 17:41:45 by hgrissen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 t_node	*find_node(t_stack *a_stack, int index)
@@ -60,10 +72,10 @@ void	ft_optimal_direction(t_stack *a_stack, t_stack *b_stack,
 			t_node *b_node, t_info *shift_info)
 {
 	t_info	new_shift_info;
-	         int	ra_size;
-	         int	rra_size;
-	         int	rb_size;
-	         int	rrb_size;
+	int		ra_size;
+	int		rra_size;
+	int		rb_size;
+	int		rrb_size;
 
 	ra_size = 0;
 	rra_size = 0;
@@ -89,7 +101,7 @@ void	ft_optimal_direction(t_stack *a_stack, t_stack *b_stack,
 void	ft_opt_direction(t_stack *a_stack, t_stack *b_stack,
 			t_info *shift_info)
 {
-	         int	i;
+	int		i;
 	t_node	*current;
 
 	if (b_stack)

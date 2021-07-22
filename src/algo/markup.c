@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   markup.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hgrissen <hgrissen@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/07/22 17:42:00 by hgrissen          #+#    #+#             */
+/*   Updated: 2021/07/22 17:42:01 by hgrissen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	mode_greater(t_stack *stack, t_node *markup_head)
 {
 	int				index;
 	int				pairs;
-	t_node	*current;
+	t_node			*current;
 
 	pairs = 0;
 	if (stack)
@@ -32,7 +44,7 @@ void	markup_stack(t_stack *stack)
 {
 	int				i;
 	int				current_pairs;
-	t_node	*current;
+	t_node			*current;
 
 	if (stack)
 	{
