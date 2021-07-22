@@ -6,7 +6,7 @@
 /*   By: hgrissen <hgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 17:40:54 by hgrissen          #+#    #+#             */
-/*   Updated: 2021/07/22 17:40:57 by hgrissen         ###   ########.fr       */
+/*   Updated: 2021/07/22 17:46:04 by hgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	main(int argc, char **argv)
 		indexing(stack);
 		markup_stack(stack);
 		solve(stack);
-		free_stack(stack);
 	}
 	return (0);
 }

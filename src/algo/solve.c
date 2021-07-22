@@ -6,7 +6,7 @@
 /*   By: hgrissen <hgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 17:42:14 by hgrissen          #+#    #+#             */
-/*   Updated: 2021/07/22 17:42:15 by hgrissen         ###   ########.fr       */
+/*   Updated: 2021/07/22 17:45:44 by hgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,5 @@ void	solve(t_stack *a_stack)
 	solve_b(a_stack, b_stack);
 	align_stack(a_stack);
 	free_stack(b_stack);
+	free_stack(a_stack);
 }
