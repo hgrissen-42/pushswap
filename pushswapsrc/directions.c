@@ -42,24 +42,24 @@ void	ft_estimate_direction(t_stack *stack, int index, int *rx_size,
 	}
 }
 
-void	ft_set_direction(int size, t_shift_info new_shift_info,
-		t_shift_info *shift_info)
+void	ft_set_direction(int size, t_info new_shift_info,
+		t_info *shift_info)
 {
 	if (!shift_info->is_set || size < shift_info->size)
 	{
-		shift_info->a_elem = new_shift_info.a_elem;
-		shift_info->b_elem = new_shift_info.b_elem;
-		shift_info->a_direction = new_shift_info.a_direction;
-		shift_info->b_direction = new_shift_info.b_direction;
+		shift_info->a_node = new_shift_info.a_node;
+		shift_info->b_node = new_shift_info.b_node;
+		shift_info->a_dir = new_shift_info.a_dir;
+		shift_info->b_dir = new_shift_info.b_dir;
 		shift_info->size = size;
 		shift_info->is_set = true;
 	}
 }
 
 void	ft_optimal_direction(t_stack *a_stack, t_stack *b_stack,
-			t_node *b_elem, t_shift_info *shift_info)
+			t_node *b_node, t_info *shift_info)
 {
-	t_shift_info	new_shift_info;
+	t_info	new_shift_info;
 	         int	ra_size;
 	         int	rra_size;
 	         int	rb_size;
@@ -69,25 +69,25 @@ void	ft_optimal_direction(t_stack *a_stack, t_stack *b_stack,
 	rra_size = 0;
 	rb_size = 0;
 	rrb_size = 0;
-	new_shift_info.a_elem = find_node(a_stack, b_elem->index);
-	new_shift_info.b_elem = b_elem;
-	ft_estimate_direction(a_stack, new_shift_info.a_elem->index,
+	new_shift_info.a_node = find_node(a_stack, b_node->index);
+	new_shift_info.b_node = b_node;
+	ft_estimate_direction(a_stack, new_shift_info.a_node->index,
 		&ra_size, &rra_size);
-	ft_estimate_direction(b_stack, b_elem->index,
+	ft_estimate_direction(b_stack, b_node->index,
 		&rb_size, &rrb_size);
-	new_shift_info.a_direction = R;
-	new_shift_info.b_direction = R;
+	new_shift_info.a_dir = R;
+	new_shift_info.b_dir = R;
 	ft_set_direction(ft_max(ra_size, rb_size), new_shift_info, shift_info);
-	new_shift_info.a_direction = RR;
+	new_shift_info.a_dir = RR;
 	ft_set_direction(rra_size + rb_size, new_shift_info, shift_info);
-	new_shift_info.b_direction = RR;
+	new_shift_info.b_dir = RR;
 	ft_set_direction(ft_max(rra_size, rrb_size), new_shift_info, shift_info);
-	new_shift_info.a_direction = R;
+	new_shift_info.a_dir = R;
 	ft_set_direction(ra_size + rrb_size, new_shift_info, shift_info);
 }
 
 void	ft_opt_direction(t_stack *a_stack, t_stack *b_stack,
-			t_shift_info *shift_info)
+			t_info *shift_info)
 {
 	         int	i;
 	t_node	*current;

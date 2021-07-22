@@ -34,15 +34,15 @@ typedef struct s_stack
 	t_node		*mkp_head;
 }	t_stack;
 
-typedef struct s_shift_info
+typedef struct s_info
 {
-	t_node		*a_elem;
-	t_node		*b_elem;
-	int					a_direction;
-	int					b_direction;
+	t_node		*a_node;
+	t_node		*b_node;
+	int					a_dir;
+	int					b_dir;
 	int					size;
 	t_bool				is_set;
-}	t_shift_info;
+}	t_info;
 
 t_stack	*create_stack(char **av);
 void	ft_error(void);
@@ -66,7 +66,7 @@ void	solve(t_stack *a_stack);
 void	ft_solve_a(t_stack *a_stack, t_stack *b_stack);
 void	ft_solve_b(t_stack *a_stack, t_stack *b_stack);
 void	ft_opt_direction(t_stack *a_stack, t_stack *b_stack,
-			t_shift_info *shift_info);
+			t_info *shift_info);
 int		ft_max(int i, int j);
 long	ft_atol(char *str);
 int		ft_isint(long nbr);
