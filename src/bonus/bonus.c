@@ -6,7 +6,7 @@
 /*   By: hgrissen <hgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 20:27:07 by hgrissen          #+#    #+#             */
-/*   Updated: 2021/07/22 20:59:29 by hgrissen         ###   ########.fr       */
+/*   Updated: 2021/07/22 21:07:17 by hgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,29 +37,29 @@ void	check_sort(t_stack *stack_a, t_stack *stack_b)
 		ft_putendl("KO");
 }
 
-int	apply_ops(char *inst, t_stack *a, t_stack *b)
+int	apply_ops(char *op, t_stack *a, t_stack *b)
 {
-	if (!ft_strcmp(inst, "sa"))
+	if (!ft_strcmp(op, "sa"))
 		ft_sx(a, NULL);
-	else if (!ft_strcmp(inst, "sb"))
+	else if (!ft_strcmp(op, "sb"))
 		ft_sx(b, NULL);
-	else if (!ft_strcmp(inst, "ss"))
+	else if (!ft_strcmp(op, "ss"))
 		ft_ss(a, b, NULL);
-	else if (!ft_strcmp(inst, "pa"))
+	else if (!ft_strcmp(op, "pa"))
 		ft_px(a, b, NULL);
-	else if (!ft_strcmp(inst, "pb"))
+	else if (!ft_strcmp(op, "pb"))
 		ft_px(b, a, NULL);
-	else if (!ft_strcmp(inst, "ra"))
+	else if (!ft_strcmp(op, "ra"))
 		ft_rx(a, NULL);
-	else if (!ft_strcmp(inst, "rb"))
+	else if (!ft_strcmp(op, "rb"))
 		ft_rx(b, NULL);
-	else if (!ft_strcmp(inst, "rr"))
+	else if (!ft_strcmp(op, "rr"))
 		ft_rr(a, b, NULL);
-	else if (!ft_strcmp(inst, "rra"))
+	else if (!ft_strcmp(op, "rra"))
 		ft_rrx(a, NULL);
-	else if (!ft_strcmp(inst, "rrb"))
+	else if (!ft_strcmp(op, "rrb"))
 		ft_rrx(b, NULL);
-	else if (!ft_strcmp(inst, "rrr"))
+	else if (!ft_strcmp(op, "rrr"))
 		ft_rrr(a, b, NULL);
 	else
 		return (0);
@@ -68,20 +68,20 @@ int	apply_ops(char *inst, t_stack *a, t_stack *b)
 
 void	read_ops(t_stack *stack_a, t_stack *stack_b)
 {
-	char	*inst;
+	char	*op;
 
-	while (get_next_line(&inst))
+	while (get_next_line(&op))
 	{
-		if (apply_ops(inst, stack_a, stack_b))
+		if (apply_ops(op, stack_a, stack_b))
 		{
-			free(inst);
+			free(op);
 			continue ;
 		}
 		else
 			ft_error();
-		free(inst);
+		free(op);
 	}
-	free(inst);
+	free(op);
 }
 
 int	main(int argc, char **argv)
